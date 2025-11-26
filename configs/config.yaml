@@ -1,0 +1,38 @@
+# Configuration for Product Recommendation System
+
+# Random seed for reproducibility
+random_seed: 42
+
+# Data configuration
+data_dir: "data"
+test_size: 0.2
+
+# Model configuration
+models:
+  content_based:
+    max_features: 1000
+    ngram_range: [1, 2]
+  
+  collaborative_filtering:
+    factors: 50
+    regularization: 0.01
+    iterations: 50
+  
+  hybrid:
+    content_weight: 0.6
+    collab_weight: 0.4
+
+# Evaluation configuration
+evaluation:
+  k_values: [5, 10, 20]
+  n_recommendations: 20
+  
+# Data generation (if generating sample data)
+data_generation:
+  n_products: 1000
+  n_users: 500
+
+# Logging configuration
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
